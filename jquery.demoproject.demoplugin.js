@@ -1,6 +1,6 @@
 /*
 	Некоторые соглашения: 
-		- Формат имени файла: jquery.<название проекта>.<название плагина>[.min].js (всё в нижнем регистре)
+		- Формат имени файла: jquery.<название проекта>_<название плагина>[.min].js (всё в нижнем регистре)
 		- Формат имён методов и переменных -- camelCase	(исключения описаны ниже)
 		- Переменные, которые ссылаются на jQuery-объекты называются с префиксом "$", например "$someVar"
 	
@@ -11,7 +11,7 @@
 	Demo plugin from project 'Demo Project'
 
 	Dependencies: // Список зависимостей
-		- jQuery 1.6.4+ - http://jquery.com/
+		- jQuery x.x.x+ - http://jquery.com/
 */
 ;(function($) { // Стандартная анонимная функция-замыкание, на случай комбинирования с другими скриптами, которые не заканчиваются точкой с запятой перед кодом ставим ";"
 
@@ -52,8 +52,8 @@
 		Private-методы
 	*/
 		function handleClick() {
-			var _this = $(this); // Пример локальной переменной
-			_this.css({color: 'red'}).fadeOut('slow');
+			var $this = $(this); // Пример локальной переменной
+			$this.css({color: 'red'}).fadeOut('slow');
 			return false;
 		}
 	
@@ -79,10 +79,10 @@
 	*/
 	$.fn[jqPluginName] = function(options) {		
 		return this.each(function () {
-			var _this = $(this);			
-			if (!_this.data(jqPluginName))
+			var $this = $(this);			
+			if (!$this.data(jqPluginName))
 			{
-				new demoPlugin(_this, options);
+				new demoPlugin($this, options);
 			}
 		});	
 	}
