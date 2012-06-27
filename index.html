@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery plugin pattern demo</title>
+
+		<script src="js/jquery-1.6.4.min.js"></script>
+		<script src="jquery.demoproject.demoplugin.js"></script>			
+		<script>
+			$(function(){
+				// Пример с настройками по умолчанию
+				$('.context-1').demoProject_demoPlugin();
+				
+				// Пример с переопределёнными настройками
+				$('.context-2').demoProject_demoPlugin({
+					ui: { 
+						clicker: '.custom-clicker'
+					}
+				});
+				
+				// Поддерживается chaining-объектов
+				$('.context-3').demoProject_demoPlugin().slideUp('slow'); 
+								
+				// Пример вызова public-метода для одного экземпляра
+				$('.api-demo-cliker-single:first').click(function(){				
+					var demoPluginApi = $('.context-1:first').data('demoProject_demoPlugin');	
+					demoPluginApi.Toggle();										
+					return false;
+				});				
+								
+				// Пример вызова public-метода для нескольких экземпляров
+				$('.api-demo-clicker:first').click(function(){				
+					$('.context-1').each(function() {
+						var demoPluginApi = $(this).data('demoProject_demoPlugin');	
+						demoPluginApi.Toggle();						
+					});					
+					return false;
+				});				
+			});
+		</script>				
+	</head>
+	
+	<body>
+		<h1>Cсылки ниже используют один селектор, но разные экземпляры плагина</h1>
+
+		<div class="context-1">
+			<a href="#" class="default-clicker">Первая ссылка</a>
+		</div>
+		<div class="context-1">
+			<a href="#" class="default-clicker">Первая ссылка</a>
+		</div>
+		<div class="context-1">
+			<a href="#" class="default-clicker">Третья ссылка</a>
+		</div>			
+
+		<p><a href="#" class="api-demo-clicker">Клик по этой ссылке вызывает public-метод у нескольких экземпляров</a>, а по этой&nbsp;&mdash; <a class="api-demo-cliker-single" href="#">у одного</a></p>
+		
+		<h1>Ссылка ниже использует другой экземпляр плагина</h1>			
+		<div class="context-2">
+			<a href="#" class="custom-clicker">Первая ссылка</a>			
+		</div>
+		
+		<h1>Эта ссылка будет скрыта при загрузке страницы</h1>
+		<div class="context-3">
+			<a href="#" class="default-clicker">Первая ссылка</a>
+		</div>		
+	</body>
+</html>
