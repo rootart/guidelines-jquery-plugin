@@ -1,6 +1,7 @@
 General purpose jQuery plugin template with the following features:
 
-- default settings
+- no dependencies (except jQuery)
+- plugin defaults
 - centralized storage for settings and plugin-wide variables
 - jQuery method chaining support
 - public methods
@@ -9,6 +10,7 @@ General purpose jQuery plugin template with the following features:
 
 Шаблон jQuery-плагина общего назначения:
 
+- Отсутствие зависимостей (кроме jQuery)
 - Есть настройки по умолчанию
 - Хранилище настроек и переменных в виде специального объекта
 - Поддержка method chaining
