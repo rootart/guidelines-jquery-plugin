@@ -1,4 +1,4 @@
-General purpose jQuery plugin template:
+General purpose jQuery plugin template with the following features:
 
 - default settings
 - centralized storage for settings and plugin-wide variables
