@@ -1,6 +1,9 @@
 General purpose jQuery plugin template
 
-
+- default settings
+- storage for settings
+- method chaining support
+- public methods
 
 --------------------------------------------------------------------------------
 
